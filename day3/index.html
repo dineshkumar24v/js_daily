@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+//Que 1:     Write a JavaScript script that compares two variables 
+// using different comparison operators (==, ===, !=, !==, >, <, >=, <=) and prints the results.
+
+let a=10;
+let b=12;
+
+console.log(a==b);
+console.log(a===b);
+console.log(a!=b);
+console.log(a!==b);
+console.log(a>b);
+console.log(a<b);
+console.log(a>=b);
+console.log(a<=b);
+
+
+// Que 2: Write a JavaScript script that uses the ternary operator to determine if a number is even or odd.
+
+let num1=1;
+let num2 = num1%2==0 ? "even" : "odd";
+console.log(num2);
+
+document.write(num2);
+document.write("<br>");
+
+//Que 3: Expand the script to include a ternary operation that checks if a user is an adult (18+) or a minor. 
+let age=12;
+let r=age>=18 ? "adult" : "minor";
+document.write(r);
+document.write("<br>");
+
+console.log(r);
+
+
+//Que 4: Grade Classification: Declare a variable score and set it to a value between 0 and 100.Use nested ternary operators to classify the score into grades: A (>= 90), B (>= 75), C (>= 60), D (>= 45), and F (below 45). Log the grade.
+
+let marks=76;
+let grade=marks>=90 ? "grade A" : (marks>=75) ? "grade B" : (marks>=60) ? "grade C" : (marks>=45) ? "grade D" : "grade F";
+document.write(grade);
+document.write("<br>");
+
+console.log(grade);
+
+
+
+// Que 5: Temperature Check: Declare a variable temperature and use nested ternary operators to categorize it as "Hot" (above 30), 
+//  "Warm" (20-30), "Cool" (10-19), and "Cold" (below 10). Log the result.
+
+let temp=44;
+let check=temp>30 ? "Hot" : (temp<=30 && temp>=20) ? "Warm" : (temp<20 && temp>=10) ? "Cool" : "Cold";
+document.write(check);
+document.write("<br>");
+
+console.log(check);
+
+
+
+  // Que 6: Age Group: Declare a variable age and use the ternary operator to classify the age into "Child" (0-12), "Teen" (13-19), "Adult" (20-64), and "Senior" (65 and above). Log the result.
+
+
+  let ageC=25;
+  let ageGrp=ageC<0 ? "Invalid age" :(ageC>=0 && ageC)<=12 ? "child" : (ageC>=13 && ageC<=19) ? "Teen" :(ageC>=20 && ageC<=64) ? "Adult" : "Senior";
+  document.write(ageGrp);
+  console.log(ageGrp);
+
+
+
+
+  </script>
+</body>
+</html>
