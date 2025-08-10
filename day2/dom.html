@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS class1</title>
+  <style>
+    /* Simple styling to make the output more readable */
+    .output {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  
+<button onclick="alert('iam Inline')">hai</button>
+
+<div class="output" id="output"></div> <!-- This div will hold the output -->
+
+<script>
+  // Function to append output to the page
+  function appendOutput(message) {
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML += message + "<br>";
+  }
+
+  // que 1: Write a JavaScript alert in internal, external, inline
+  alert('iam external');
+  appendOutput("Alert from external: 'iam external'");
+
+  // que 2: Declare three different types of variables and print their values to the console
+  let a = 10;
+  var b = 12;
+  const y = 15;
+  
+  appendOutput("Value of a (let): " + a);
+  appendOutput("Value of b (var): " + b);
+  appendOutput("Value of y (const): " + y);
+
+  // que 3: Create variables of different data types
+  var num = 25;
+  appendOutput("Value of num (number): " + num);
+
+  var str = "dinesh";
+  appendOutput("Value of str (string): " + str);
+
+  var d;
+  appendOutput("Value of d (undefined): " + d);
+
+  var b = null;
+  appendOutput("Value of b (null): " + (b + 12));
+
+  var arr = [23, 54, 'dinesh', 'kumar', 'niraj', 76];
+  appendOutput("Value of arr (array): " + JSON.stringify(arr));
+  appendOutput("Value of arr[2] (array element): " + arr[2]);
+
+  let obj = {
+    class: 12,
+    roll_no: 22,
+    age: 17
+  };
+  appendOutput("Value of obj (object): " + JSON.stringify(obj));
+  appendOutput("Value of obj.age (object property): " + obj.age);
+  appendOutput("Value of obj['class'] (object property): " + obj["class"]);
+
+  // que 4: Use the typeof operator to log the type of each variable
+  appendOutput("Type of num: " + typeof(num));
+  appendOutput("Type of str: " + typeof(str));
+  appendOutput("Type of b: " + typeof(b));
+  appendOutput("Type of arr: " + typeof(arr));
+  appendOutput("Type of obj: " + typeof(obj));
+</script>
+
+</body>
+</html>
