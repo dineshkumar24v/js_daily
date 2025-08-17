@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP generator</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color:antiquewhite;  
+    }
+    body{
+      height: 90vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container{
+      border-radius: 10px;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      height: 20rem;
+      width: 20rem;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container:hover{
+      background-color: rgba(213, 236, 82, 0.286);
+    }
+    button{
+      padding: .5rem;
+      font-size: 1rem;
+      border-radius: 1rem;
+      background-color: rgb(163, 157, 71);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      margin: 2rem;
+    }
+    button:hover{
+      background-color: rgb(125, 107, 141);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      padding: .6rem;
+      font-size: 1.1rem;
+    }
+    p{
+      font-size: 1.8rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+  <button onclick="displayOTP()">Generate OTP</button>
+
+  <p id="otpDisplay"></p>
+</div>
+
+
+
+
+  <script>
+    // Function to generate OTP 
+function generateOTP() { 
+
+// Declare a digits variable which stores all digits 
+let digits = '0123456789'; 
+let OTP = ''; 
+let len = digits.length 
+for (let i = 0; i < 4; i++) { 
+  OTP += digits[Math.floor(Math.random() * len)]; 
+} 
+
+return OTP; 
+} 
+
+// console.log("OTP of 4 digits: ") 
+// console.log(generateOTP());
+
+// Function to display the OTP on the HTML page
+function displayOTP() {
+  const otp = generateOTP();
+  document.getElementById('otpDisplay').textContent = otp;
+}
+
+// // Call the displayOTP function to show the OTP
+// displayOTP();
+
+  </script>
+</body>
+</html>
