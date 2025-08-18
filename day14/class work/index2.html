@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .demo{
+      display: flex;
+      background-color: blueviolet;
+      color: white;
+      justify-content: space-between;
+
+    }
+    .demo2{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 2) Dynamic class manipulation: Write a function that adds or removes
+  a class from an element when a button is clicked. -->
+<button onclick="toggle()">toggle</button>
+ <script>
+  //creating HTML tags by JS
+  let header = document.createElement("header")
+    let navbar = document.createElement("nav")
+    let h1 = document.createElement("h1")
+    let ul = document.createElement("ul")
+    let li1 = document.createElement("li")
+    let li2 = document.createElement("li")
+    let li3 = document.createElement("li")
+
+    //modifying the innerText of tags
+    h1.innerText='10000 Coders';
+    li1.innerText='Home';
+    li2.innerText='Services';
+    li3.innerText='About';
+
+    //appending tags to the HTML page by using append Method
+    ul.append(li1, li2, li3)
+    navbar.appendChild(h1)
+    header.append(navbar, ul)
+    document.body.appendChild(header)
+
+
+    //adding attributes using DOM
+    header.setAttribute('class', 'demo')
+    ul.setAttribute('class', 'demo2')
+
+    //toggle button
+    function toggle(){
+      header.classList.toggle('demo')
+    }
+
+ </script>
+</div>
+</body>
+</html>

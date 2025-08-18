@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 1) Modify element attributes: Select an image element and 
+ change its src and alt attributes. -->
+
+  <img id="myImage" src="img1.jpg" alt="image" style="height: 300px;">
+  <button onclick="chngImg()">button</button>
+
+  <script>
+    let image =document.getElementById('myImage')
+    function chngImg(){
+      image.setAttribute("src", "img2.jpg")
+    }
+  </script>
+</body>
+</html>
