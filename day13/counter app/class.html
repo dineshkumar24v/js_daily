@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Counter</h1>
+  <h1 id="displayCount">0</h1>
+  <button onclick="decrease()">Decrease</button>
+  <button onclick="reset()">Reset</button>
+  <button onclick="increase()">Increase</button>
+
+
+
+  <script>
+    let count=0;
+    let counter =  document.getElementById('displayCount')
+
+    function update(){
+      counter.innerText=count;
+    }
+    function decrease(){
+    count--;
+    update();
+  }
+  function reset(){
+    count=0;
+    update()
+  }
+  function increase(){
+    count++;
+    update()
+  }
+  </script>
+</body>
+</html>
