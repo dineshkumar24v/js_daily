@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>navbar by JS</title>
+</head>
+<body>
+  <!-- creating a navbar using only JS -->
+<!-- QUESTION:
+  1) Select an element by ID: Write a script that selects an element
+  with a specific id and changes its background color.
+2) Select elements by class name: Use getElementsByClassName()
+ to select all elements with a class and log them to the console.
+3) Change text content: Select an element and 
+change its text content using textContent or innerHTML.
+4) Create and append an element: Write a script that
+ creates a new p element and appends it to a div.
+5) Remove an element: Select an element by its id 
+and remove it from the DOM.
+6) Style an element: Use JavaScript to modify the
+ CSS style of an element (e.g., change the font size, color, or margin). -->
+
+  <script>
+    //creating HTML tags by JS
+    let header = document.createElement("header")
+    let navbar = document.createElement("nav")
+    let h1 = document.createElement("h1")
+    let ul = document.createElement("ul")
+    let li1 = document.createElement("li")
+    let li2 = document.createElement("li")
+    let li3 = document.createElement("li")
+
+    //modifying the innerText of tags
+    h1.innerText='10000 Coders';
+    li1.innerText='Home';
+    li2.innerText='Services';
+    li3.innerText='About';
+
+    //appending tags to the HTML page by using append Method
+    ul.append(li1, li2, li3)
+    navbar.appendChild(h1)
+    header.append(navbar, ul)
+    document.body.appendChild(header)
+
+    //styling the HTML tags through JS
+
+    header.style.display='flex';
+    header.style.justifyContent='space-between';
+    header.style.alignItems='center';
+    header.style.backgroundColor='#205781';
+    header.style.color='white';
+    header.style.borderRadius='.5rem';
+
+    h1.addEventListener('mouseenter', () => {
+            h1.style.backgroundColor = 'white';
+            h1.style.color = '#205781';
+            h1.style.borderRadius = '1rem';
+        });
+    h1.addEventListener('mouseleave', () => {
+          h1.style.backgroundColor = '';
+          h1.style.color = 'white';
+
+        });
+    
+    h1.style.padding='.5rem';
+    h1.style.cursor='pointer';
+    
+    ul.style.padding='.9rem';
+    ul.style.display='flex';
+    ul.style.listStyle='none';
+    ul.style.cursor='pointer';
+    li1.style.paddingRight='2rem';
+    li2.style.paddingRight='2rem';
+    li3.addEventListener('mouseenter', () => {
+            li3.style.backgroundColor = 'white';
+            li3.style.color = '#205781';
+            li3.style.borderRadius = '1rem';
+        });
+    li3.addEventListener('mouseleave', () => {
+          li3.style.backgroundColor = '';
+          li3.style.color = 'white';
+        });
+
+    //consoling them and checking for noErrors
+    console.log(header);
+    console.log(navbar);
+    console.log(ul);
+    console.log(li1);
+    console.log(li2);
+
+  </script>
+
+</body>
+</html>
