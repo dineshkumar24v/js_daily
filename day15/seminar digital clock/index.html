@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .container{
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .innerCon{
+      height: 30vh;
+      width: 55vh;
+      /* background-color: cornflowerblue; */
+      background-image: linear-gradient(violet, yellow);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    p{
+      font-size: 20px;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      color: rgb(54, 115, 228);
+      font-weight: 500;
+    }
+    h1{
+      font-size: 2.5rem;
+      font-family:monospace;
+      color: rgb(26, 41, 100);
+    }
+    #text{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: rgb(5, 89, 245);
+      padding: 30px;
+    }
+    #span{
+      padding-bottom: 30px;
+    }
+    #span span{
+      font-size: 12px;
+      padding: 20px;
+      color: rgb(26, 41, 100);
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="text">Digital Clock</h1>
+    <div class="innerCon">
+      <h1 id="display">00:00:00</h1>
+      <div id="span">
+        <span>Hrs</span>
+        <span>Min</span>
+        <span>Sec</span>
+      </div>
+      
+      <p id="date"></p>
+    </div>    
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
