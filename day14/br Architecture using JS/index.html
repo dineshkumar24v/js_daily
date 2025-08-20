@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR Architecture</title>
+
+  <style>
+    .body{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 10vh;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+      background-color: white;
+      padding-left: 5px;
+      position: sticky;
+      top: 0;
+    }
+    .header_ul{
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      padding: 12px;
+    }
+    .project_img{
+      height: 30vh;
+    }
+    .project_img_Cont1{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+    .project_img_Cont2{
+      padding: .3rem;
+      width: 24%;
+    }
+    .contactbtn{
+      padding: 4% 4%;
+      background-color: rgb(224, 220, 220);
+      text-align: center;
+    }
+    .input{
+      width: 95%;
+      margin-bottom: 10px;
+      padding: 10px;
+      margin: 10px;
+    }
+    .sendmsgbtn{
+      padding: 10px;
+      background-color: black;
+      color: white;
+      margin: 10px;
+    }
+    .footer{
+      display: flex;
+      justify-content: center;
+      background-color: black;
+      color: white;
+      padding: 15px;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+  
+
+  <script>
+    // header
+    let header=document.createElement('div')
+    let BR=document.createElement('h3')
+    let ul=document.createElement('ul')
+    let li1=document.createElement('li')
+    let li2=document.createElement('li')
+    let li3=document.createElement('li')
+
+    BR.innerText='BR Architects'
+    li1.innerText='Projects'
+    li2.innerText='About'
+    li3.innerText='Contact'
+
+    ul.append(li1,li2,li3)
+    header.append(BR, ul)
+    document.body.appendChild(header)
+
+    header.setAttribute('class', 'header')
+    ul.setAttribute('class', 'header_ul')
+    document.body.setAttribute('class', 'body')
+
+    console.log(header)
+
+    //hero section
+    let HeroSecimg=document.createElement('h1')
+    let span=document.createElement('span')
+
+    span.innerText = 'BR Architects';
+    span.style.backgroundColor = 'rgba(120, 120, 120, 0.5)';
+    span.style.padding = '10px';
+    HeroSecimg.append(span);
+    document.body.append(HeroSecimg);
+
+    HeroSecimg.style.backgroundImage = 'url(images/architect.jpg)'
+    HeroSecimg.style.width='100%'
+    HeroSecimg.style.height='100vh'
+    HeroSecimg.style.backgroundSize='cover'
+
+    // herosection text positioning to center
+    HeroSecimg.style.display = 'flex';
+    HeroSecimg.style.justifyContent = 'center';
+    HeroSecimg.style.alignItems = 'center';
+    HeroSecimg.style.color = 'white';
+    HeroSecimg.style.fontSize = '2em';
+
+    //projects
+    let ProjectsH1=document.createElement('h1')
+    ProjectsH1.innerText='Projects';
+    document.body.append(ProjectsH1)
+    
+    //project cards
+    let cardnames=['Summer House','BrickHouse', 'Renovated', 'Barn House', 'Summer House','BrickHouse', 'Renovated', 'Barn House',]
+    let projectImages=['images/house1.jpg','images/house2.jpg','images/house3.jpg','images/house4.jpg','images/house5.jpg','images/house6.jpg','images/house7.jpg','images/house8.jpg',]
+    let imgContMain=document.createElement('div')
+
+    for(i=0; i<8; i++){
+      let imgCont=document.createElement('div')
+      let img=document.createElement('img')
+      let imgText=document.createElement('h4')
+
+      img.setAttribute('src', projectImages[i])
+      imgText.innerHTML=cardnames[i]
+
+      imgCont.append(img, imgText)
+      imgContMain.append(imgCont)
+      document.body.append(imgContMain)
+
+      img.setAttribute('class', 'project_img')
+      imgContMain.setAttribute('class', 'project_img_Cont1')
+      imgCont.setAttribute('class', 'project_img_Cont2')
+    }
+    
+    //About
+    let aboutCon =document.createElement('div')
+    let about =document.createElement('h1')
+    let aboutText =document.createElement('p')
+
+    about.innerText='About'
+    aboutText.innerText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+
+    aboutCon.append(about, aboutText)
+    document.body.append(aboutCon)
+
+    //About Cards
+    let Aboutcardnames1=['John Doe','Jane Doe', 'Mike Ross', 'Dan Star']
+    let Aboutcardnames2=['CEO & Founder','Architect', 'Architect', 'Architect']
+    let Aboutcardnames3=['Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.']
+    let AboutImages=['images/John.jpg','images/Jane.jpg','images/mike.jpg','images/Dan.jpg']
+
+    let imgCont1=document.createElement('div')
+    for(i=0; i<4; i++){
+
+      let imgCont2=document.createElement('div')
+      let img1=document.createElement('img')
+      let imgText1=document.createElement('h4')
+      let imgText2=document.createElement('h6')
+      let imgText3=document.createElement('p')
+      let imgText4=document.createElement('p')
+
+      img1.setAttribute('src', AboutImages[i])
+      imgText1.innerHTML=Aboutcardnames1[i]
+      imgText2.innerHTML=Aboutcardnames2[i]
+      imgText3.innerHTML=Aboutcardnames3
+      imgText4.innerHTML='Contact'
+
+      imgCont2.append(img1, imgText1,imgText2,imgText3,imgText4)
+      imgCont1.append(imgCont2)
+      document.body.append(imgCont1)
+
+      img1.setAttribute('class', 'project_img')
+      imgCont1.setAttribute('class', 'project_img_Cont1')
+      imgCont2.setAttribute('class', 'project_img_Cont2')
+      imgText4.setAttribute('class', 'contactbtn')
+
+    }
+
+    // contact
+    let contactH1=document.createElement('h1')
+    let HRtag=document.createElement('hr')
+    let textTag=document.createElement('p')
+    let form=document.createElement('form')
+    let input1=document.createElement('input')
+    let input2=document.createElement('input')
+    let input3=document.createElement('input')
+    let input4=document.createElement('input')
+    let sendbtn=document.createElement('button')
+
+    contactH1.innerText='Contact'
+    textTag.innerText='Lets get in touch and talk about your next project.'
+    sendbtn.innerText='SEND MESSAGE'
+
+    form.append(input1,input2,input3,input4)
+    document.body.append(contactH1,HRtag,textTag,form,sendbtn)
+
+    input1.setAttribute('class', 'input')
+    input2.setAttribute('class', 'input')
+    input3.setAttribute('class', 'input')
+    input4.setAttribute('class', 'input')
+
+    input1.setAttribute('placeholder', 'Your Name');
+    input2.setAttribute('placeholder', 'Your Email');
+    input3.setAttribute('placeholder', 'Subject');
+    input4.setAttribute('placeholder', 'Comment');
+    
+    sendbtn.setAttribute('class', 'sendmsgbtn')
+
+
+    // map image
+    let mapImage=document.createElement('img')
+
+    mapImage.setAttribute('src', 'images/map.jpg')
+
+    document.body.append(mapImage)
+
+    mapImage.style.width='95%'
+    mapImage.style.margin='25px'
+
+    //footer
+    let footer=document.createElement('div')
+    let footerTxt=document.createElement('p')
+
+    footerTxt.textContent='Powered by DINESH DINNU'
+
+    footer.append(footerTxt)
+    document.body.append(footer)
+
+    footer.setAttribute('class', 'footer')
+  </script>
+</body>
+</html>
