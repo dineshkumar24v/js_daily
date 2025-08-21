@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker</title>
+</head>
+<body>
+  <!-- 1) Password Strength Checker:
+Create an input field where a user types a password, and the script checks if the password is "Strong", "Medium", or "Weak" based on its length. -->
+
+<form id="passWform" action="">
+  <input id="pass" type="text" placeholder="enter password">
+  <button type="submit">submit</button>
+</form>
+
+<p class="strengthMsg"></p>
+
+
+<script>
+  // The submit event should be attached to the <form> element, not the <button>. The button itself triggers a form submission, so you need to handle the form event for smoother functionality.
+
+  let form = document.getElementById('passWform')
+  let passW = document.getElementById('pass')
+  // let btn = document.querySelector('button')
+ let strengthMessage = document.querySelector('.strengthMsg')
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault()
+    // console.log(passW.value)
+    if(passW.value.length>=8){
+      // console.log('strong')
+      strengthMessage.innerHTML='Strong'
+      strengthMessage.style.color='green'
+    }else if(passW.value.length>=5){
+      // console.log('medium')
+      strengthMessage.innerHTML='Medium'
+      strengthMessage.style.color='orange'
+    }else{
+      console.log('weak')
+      strengthMessage.innerHTML='Weak'
+      strengthMessage.style.color='red'
+    }
+  })
+
+  console.log(passW.value)
+  console.log(btn)
+</script>
+</body>
+</html>
