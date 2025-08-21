@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simple calculator</title>
+</head>
+<style>
+  input{
+    padding: 12px;
+  }
+  button{
+    padding: 10px;
+    font-size: 22px;
+  }
+</style>
+<body>
+  <!-- simple calculator -->
+<form action="" id="form">
+  <input type="number" id="input1">
+  <input type="number" id="input2">
+</form>
+  <div>
+    <button id="button1">+</button>
+    <button id="button2">-</button>
+    <button id="button3">*</button>
+    <button id="button4">/</button>
+  </div>
+
+  <h2 id="display"></h2>
+
+  <script>
+    let form=document.getElementById('form')
+    let input1=document.getElementById('input1')
+    let input2=document.getElementById('input2')
+
+    let btn1=document.getElementById('button1')
+    let btn2=document.getElementById('button2')
+    let btn3=document.getElementById('button3')
+    let btn4=document.getElementById('button4')
+
+    let display=document.getElementById('display')
+
+
+    btn1.addEventListener('click', function(){
+      // console.log(parseFloat(input1.value)+parseFloat(input2.value))
+      display.innerHTML=(parseFloat(input1.value)+parseFloat(input2.value))
+    })
+    btn2.addEventListener('click', function(){
+      //  console.log(parseFloat(input1.value) - parseFloat(input2.value));
+      display.innerHTML=(parseFloat(input1.value)-parseFloat(input2.value))
+
+    });
+
+    btn3.addEventListener('click', function(){
+      //  console.log(parseFloat(input1.value) * parseFloat(input2.value));
+      display.innerHTML=(parseFloat(input1.value)*parseFloat(input2.value))
+    });
+
+    btn4.addEventListener('click', function(){
+       if (parseFloat(input2.value) !== 0) {
+          //  console.log(parseFloat(input1.value) / parseFloat(input2.value));
+      display.innerHTML=(parseFloat(input1.value)/parseFloat(input2.value))
+       } else {
+        console.log("Error: Cannot divide by zero!");
+        }
+       });
+
+
+
+      //  The parseInt() Method
+      //  parseInt() parses a string and returns the first integer:
+
+      // The parseFloat() Method
+      // parseFloat() parses a string and returns the first number:
+
+
+
+
+  </script>
+</body>
+</html>
