@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>password matcher  </title>
+</head>
+<body>
+  <!-- 2) password matcher -->
+
+  <form action="" id="form">
+    <input type="text" id="pass1">
+    <input type="text" id="pass2">
+    <button type="submit">submit</button>
+  </form>
+
+  <p id="matchMsg"></p>
+
+
+  <script>
+    let form=document.getElementById("form")
+    let input1=document.getElementById('pass1')
+    let input2=document.getElementById('pass2')
+    let displayMsg=document.getElementById('matchMsg')
+
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault()
+      // console.log(input1.value)
+      // console.log(input2.value)
+
+      if(input1.value == input2.value){
+        // console.log('Password Matched')
+        displayMsg.innerHTML='Password Matched'
+        displayMsg.style.color='green'
+      }else{
+        // console.log('Password donot match')
+        displayMsg.innerHTML='Password not Matched'
+        displayMsg.style.color='red'
+      }
+      
+    })
+  </script>
+</body>
+</html>
