@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: rgb(182, 219, 239);
+      }
+      .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family:cursive;
+        color: rgb(22, 22, 83);
+        height: 90vh;
+      }
+      h1{
+        font-size: 2rem;
+        margin: 1rem;
+        font-family: fantasy;
+        color: rgb(56, 43, 130);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 1rem;
+        border-radius: 10px;
+      }
+      label{
+        font-size: 1.1rem;
+        margin: 1rem;
+      }
+      input{
+        padding: 6px;
+        font-size: 22px;
+        margin: 12px;
+        border-radius: 10px;
+        background-color: #506eb0;
+        color: rgb(231, 234, 233);
+        font-weight: 900;
+        border: none;
+        font-family: serif;
+      }
+      input:hover{
+        cursor: pointer;
+        font-family:monospace;
+      }
+      button{
+        font-size: 1.1rem;
+        padding: 5px;
+        margin: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        background-color: rgb(215, 236, 250);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      button:hover{
+        font-family: cursive;
+        color: rgb(77, 77, 162);
+      }
+      p{
+        font-size: 1.2rem;
+        font-family: serif;
+        margin: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Age Calculator</h1>
+    <label for="birthdate">Enter your birthdate: </label>
+    <input type="date" id="birthdate">
+    <button onclick="calculateAge()">Calculate age</button>
+    <p id="result"></p>
+  </div>  
+
+  <!-- java script -->
+    <script>
+        function calculateAge() {
+            const birthdate = document.getElementById('birthdate').value;
+            if (!birthdate) {
+                document.getElementById('result').textContent = "Please select your birthdate!";
+                document.getElementById('result').style.color='red'
+                document.getElementById('result').style.padding='10px'
+                return;
+            }
+            
+            const birthDate = new Date(birthdate);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            document.getElementById('result').textContent = `You are ${age} years old.`;
+            document.getElementById('result').style.color='green'
+            document.getElementById('result').style.padding='10px'
+        }
+    </script>
+</body>
+</html>
