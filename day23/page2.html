@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 2</title>
+  <style>
+    mainC{
+      display: flex;
+      align-items: center;
+      justify-content: center;  
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+    }
+    .card p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Page 2</h1>
+  <div class="mainC">
+    <div id="card-container"></div>
+  </div>
+  <script>
+    // Fetch the data from localStorage
+    let data = JSON.parse(localStorage.getItem('studentData'));
+    const container = document.getElementById('card-container');
+
+    // Loop through the data and create cards
+    data.forEach(student => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const name = document.createElement('h3');
+      name.innerText = `Name: ${student.name}`;
+      
+      const age = document.createElement('p');
+      age.innerText = `Age: ${student.age}`;
+
+      const position = document.createElement('p');
+      position.innerText = `Position: ${student.position}`;
+
+
+      // appending data to html
+      card.append(name,age,position);
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
