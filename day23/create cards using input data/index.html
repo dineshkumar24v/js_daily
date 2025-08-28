@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>post cards</title>
+</head>
+<body>
+  <input type="text" id="inp1">
+  <input type="text" id="inp2">
+  <button onclick="postData()">post</button>
+  <a href="viewDetails.htm">view details</a>
+
+  <script>
+    let emptyArr =JSON.parse(localStorage.getItem('studentCards')) || []
+    function postData(){
+      var inp1 = document.getElementById('inp1').value;
+      var inp2 = document.getElementById('inp2').value;
+      let obj = {
+        name: inp1,
+        age: inp2
+      }
+      emptyArr.push(obj)
+      console.log(emptyArr);
+      localStorage.setItem('studentCards',JSON.stringify(emptyArr))
+    }
+  </script>
+</body>
+</html>
