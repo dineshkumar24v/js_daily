@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>page1</h1>
+  <a href="page2.html">link</a>
+
+
+
+  <script>
+    let arr=[
+      {
+      name:'John',
+      age:23,
+      position:'Frontend Developer',
+    },
+      {
+      name:'Harry',
+      age:25,
+      position:'Frontend Developer',
+    },
+      {
+      name:'Chris',
+      age:21,
+      position:'Frontend Developer',
+    }
+  ]
+
+    // console.log(arr)
+    // console.log(typeof(arr))   // object
+    // localStorage.setItem(arr)
+
+    let str=JSON.stringify(arr)   // string
+    // console.log(str)
+    // console.log(typeof(str))     // string 
+
+    localStorage.setItem('studentData', str)
+  </script>
+</body>
+</html>
