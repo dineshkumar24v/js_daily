@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    html{
+      background-color: #FFFECE;
+    }
+    .css{
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-evenly;
+    }
+    .child{
+      margin: 1rem;
+      padding: 1rem;
+      width: 190px;
+      text-align: center;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 15px;
+      background-color: rgb(201, 235, 238);
+      color: white;
+      font-size: 14px;
+    }
+    .image{
+      height: 150px;
+      width: 150px;
+      border-radius: 10px;
+    }
+    .delButton{
+      background-color: #205781;
+      background-color: #7fabcd;
+      color: white;
+      border-radius: 10px;
+      padding: 4px 15px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .delButton:hover{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background-color: #7fabcd;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  
+
+  <script>
+    let cartDetails = JSON.parse(localStorage.getItem('32raddtocart'))
+    console.log(cartDetails)
+
+    let container = document.createElement('div')
+
+    if (!cartDetails || cartDetails.length === 0) {
+    document.body.innerHTML = '<h2>Your cart is empty!</h2>';
+    }else{
+    cartDetails.forEach((val)=>{
+     //creating elements
+let ChildCont=document.createElement('div')
+let image=document.createElement('img')  
+let title=document.createElement('h3')  
+let price=document.createElement('h4')
+let category=document.createElement('h4')
+let deleteButton=document.createElement('button')
+let removeFromCart=document.createElement('button')
+
+let rating=document.createElement('div')
+let rate=document.createElement('p')
+let count=document.createElement('p')
+
+
+//adding innerText to elements
+image.src=val.image
+title.innerText=val.title
+image.alt = val.title;
+price.innerText=`Price: ${val.price} $`
+category.innerText=val.category
+
+rate.innerText=`Rating: ${val.rating.rate}⭐⭐⭐`
+count.innerText=`Count: ${val.rating.count}🧮`
+
+deleteButton.innerText='Delete card'
+removeFromCart.innerText='Remove from cart'
+
+//appending elements to html
+rating.append(rate,count)
+ChildCont.append(image,title,price,category,rating,deleteButton,removeFromCart)
+container.append(ChildCont)
+
+//styling 
+ChildCont.setAttribute('class', 'child')
+container.setAttribute('class', 'css')
+deleteButton.setAttribute('class', 'delButton')
+// addToCart.style.display='block'
+removeFromCart.setAttribute('class', 'delButton')
+
+
+image.setAttribute('class', 'image')
+rate.style.fontSize='13px';
+count.style.fontSize='13px';
+price.style.color='green';
+title.style.color='#143D60';
+category.style.color='#205781';
+// delete card button
+deleteButton.addEventListener('click', ()=> {   
+  ChildCont.remove();
+});
+// remove item from cart button
+removeFromCart.addEventListener('click', ()=> {   
+  // Get the current cart details from localStorage
+  let updatedCart = cartDetails.filter(item => item.title !== val.title);
+  
+  // Save the updated array back to localStorage
+  localStorage.setItem('32raddtocart', JSON.stringify(updatedCart));
+  
+  // Remove the card from the UI
+  ChildCont.remove();
+});
+});
+}
+
+document.body.append(container)
+
+
+  </script>
+</body>
+</html>
