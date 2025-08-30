@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add to cart</title>
+
+  <style>
+    html{
+      /* background-color: #FFFECE; */
+    }
+    .css{
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+    }
+    .child{
+      margin: 1rem;
+      padding: 1rem;
+      width: 80%;
+      text-align: center;
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+      border-radius: 15px;
+      /* background-color: rgb(201, 235, 238); */
+      /* color: white; */
+      /* border: 1px solid black; */
+    }
+    .image{
+      height: 150px;
+      width: 150px;
+      border-radius: 10px;
+    }
+    .delButton{
+      /* background-color: #205781; */
+      /* background-color: #7fabcd; */
+      /* color: white; */
+      /* border-radius: 10px; */
+      padding: 4px 15px;
+      /* border: none; */
+      cursor: pointer;
+      margin: 10px;
+    }
+    .delButton:hover{
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+      /* background-color: #7fabcd; */
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <a href="cart.html">go to cart</a>
+
+
+
+  <script>
+    async function getdetails() {
+      let data= await fetch('https://fakestoreapi.com/products/');
+      console.log(data)
+      let response = await data.json()
+      console.log(response)
+
+    MainContainer=document.createElement('div')
+
+
+// Looping through data to create cards dynamically
+response.forEach((val)=>{
+
+//creating elements
+let ChildCont=document.createElement('div')
+let image=document.createElement('img')  
+let title=document.createElement('h3')  
+let price=document.createElement('h4')
+let descp=document.createElement('p')
+let category=document.createElement('h4')
+let deleteButton=document.createElement('button')
+let addToCart=document.createElement('button')
+
+let rating=document.createElement('div')
+let rate=document.createElement('p')
+let count=document.createElement('p')
+
+
+//adding innerText to elements
+image.src=val.image
+title.innerText=val.title
+price.innerText=`Price: ${val.price} $`
+descp.innerText=val.description
+category.innerText=val.category
+
+rate.innerText=`Rating: ${val.rating.rate}⭐⭐⭐`
+count.innerText=`Count: ${val.rating.count}🧮`
+
+deleteButton.innerText='Delete'
+addToCart.innerText='Add to cart'
+
+
+
+//appending elements to html
+// rating.append(rate,count)
+ChildCont.append(image,title,price,category,deleteButton,addToCart)
+MainContainer.append(ChildCont)
+
+//styling 
+ChildCont.setAttribute('class', 'child')
+MainContainer.setAttribute('class', 'css')
+deleteButton.setAttribute('class', 'delButton')
+// addToCart.style.display='block'
+addToCart.setAttribute('class', 'delButton')
+
+
+image.setAttribute('class', 'image')
+descp.style.fontSize='10px';
+rate.style.fontSize='13px';
+count.style.fontSize='13px';
+descp.style.color='#0C0950';
+price.style.color='green';
+title.style.color='#143D60';
+category.style.color='#205781';
+
+
+
+deleteButton.addEventListener('click', ()=> {   
+  ChildCont.remove();
+})
+
+
+
+document.body.append(MainContainer)
+
+  // console.log(val)
+  // console.log(val.category)
+  // console.log(index)
+  // console.log(sourcearray)
+
+
+  
+// storing in local storage
+let localSto=JSON.stringify(response)
+console.log(localSto)
+localStorage.setItem('fakeStoreAPI',localSto)
+
+
+
+// add to cart functionality
+
+addToCart.addEventListener('click', () => {
+  
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log(cart)
+  cart.push(val); // Save only the clicked item's data
+  
+  localStorage.setItem('cart', JSON.stringify(cart));
+  console.log(cart)
+  
+  alert('Item added to cart!');
+});
+
+})
+}
+
+
+getdetails();
+
+
+
+  </script>
+</body>
+</html>
